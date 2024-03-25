@@ -10,8 +10,16 @@ export default function FriendsList({ friends, selectedFriend }) {
       </h2>
       <ol class="max-w-md space-y-1 text-black list-decimal list-inside ">
         {friends.map((friend) => (
-          <li key={friend.id} onClick={() => onFriendSelected(friend)}>
-            <span class="font-semibold text-gray-900 ">{friend.name}</span>
+          <li key={friend.id}>
+            <span class="font-semibold text-gray-900 ">
+              {friend.name}
+              <button
+                onClick={() => onFriendSelected(friend)}
+                className="text-blue-500 underline ml-5 cursor-pointer"
+              >
+                See Details
+              </button>
+            </span>
           </li>
         ))}
       </ol>

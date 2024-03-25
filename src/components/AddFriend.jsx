@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
+import { toast } from 'react-toastify';
 
 export default function AddFriend({ onAddFriend }) {
   const [name, setName] = useState('');
@@ -9,6 +10,10 @@ export default function AddFriend({ onAddFriend }) {
     onAddFriend(name);
     setName('');
   }
+
+  const handleClick = () => {
+    toast.success('Friend Added');
+  };
   return (
     <div>
       <form onSubmit={addFriend}>
@@ -33,7 +38,7 @@ export default function AddFriend({ onAddFriend }) {
             />
           </div>
           <div>
-            <Button>Add Friend</Button>
+            <Button onClick={handleClick}>Add Friend</Button>
           </div>
         </div>
       </form>
